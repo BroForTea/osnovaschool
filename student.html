@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f1">
+  <title>Основа — онлайн-школа</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="index.html" aria-label="Основа — на головну"><span class="brand-mark">о</span><span>основа<span class="brand-dot">.</span></span></a>
+      <div class="school-label">ТВІЙ ПРОСТІР НАВЧАННЯ</div>
+      <nav class="main-nav" aria-label="Головна навігація">
+        <button class="nav-item active" data-view="home"><span class="nav-icon">⌂</span>Мій кабінет</button>
+        <button class="nav-item" data-view="lessons"><span class="nav-icon">▤</span>Теоретичні уроки</button>
+        <button class="nav-item" data-view="homework"><span class="nav-icon">✓</span>Домашні завдання<span class="nav-badge">48</span></button>
+        <button class="nav-item" data-view="schedule"><span class="nav-icon">▦</span>Розклад</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-spark">✳</div><strong>Потрібна допомога?</strong><p>Куратор поруч, якщо виникнуть питання.</p><a href="mailto:hello@osnova.school">Написати куратору <span>↗</span></a></div>
+        <div class="profile-mini" aria-label="Профіль учениці"><span class="avatar">М</span><span class="profile-copy"><strong id="studentProfileName">Учень</strong><small>Учень · 5 клас · усі предмети курсу</small></span></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="main">
+      <header class="topbar"><button class="mobile-menu" id="menuToggle" aria-label="Відкрити меню">☰</button><div class="breadcrumb">Навчання <span>/</span> <b id="crumb">Мій кабінет</b></div><div class="top-actions"><span class="top-date" id="today"></span><button class="button button-dark" id="logoutButton" type="button">Вийти</button></div></header>
+
+      <section class="view active" id="view-home">
+        <div class="welcome-row"><div><div class="eyebrow"><span class="live-dot"></span> ТВОЄ МІСЦЕ ДЛЯ НОВИХ ВІДКРИТТІВ</div><h1 id="studentGreeting">Привіт! <span class="wave">✳</span></h1><p class="lead">Потроху, крок за кроком — і ти вже ближче до своєї мети.</p></div><div class="streak"><span class="streak-icon">✦</span><div><strong id="learningStreak">0 днів навчання</strong></div></div></div>
+
+        <div class="hero-card"><div class="hero-text"><span class="hero-kicker">ТВОЄ НАВЧАННЯ ЦЬОГО ТИЖНЯ</span><h2>Маленький крок<br>сьогодні — велика<br>впевненість завтра.</h2><p>Обери наступний урок або повтори тему, яку вже вивчала.</p><button class="button button-light" data-go="lessons">До уроків <span>→</span></button></div><div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="art-note note-one">думай<br>сміливо</div><div class="art-note note-two">5 клас<br>✳</div><div class="art-book"><div></div><div></div><div></div></div><div class="art-orbit"></div></div><span class="hero-stamp">твій<br>темп<br>✳</span></div>
+
+        <div class="section-heading"><div><span class="eyebrow">ТВОЯ НАВЧАЛЬНА ПОЛИЦЯ</span><h2>Продовжити навчання</h2></div><button class="text-link" data-go="lessons">Усі уроки <span>→</span></button></div>
+        <div class="course-grid">
+          <article class="course-card math"><div class="course-top"><span class="subject-icon">∑</span><span class="course-label">МАТЕМАТИКА</span></div><h3 id="mathCourseTitle">Натуральні числа й дії з ними</h3><div class="progress-caption"><span id="mathProgressLabel">0 із 24 уроків</span><span id="mathProgressPercent">0%</span></div><div class="progress-track"><span id="mathProgressBar" style="width:0%"></span></div><button class="course-continue" data-continue="math" data-lesson="">Продовжити →</button><span class="card-doodle">1, 2, 3…</span></article>
+          <article class="course-card language"><div class="course-top"><span class="subject-icon">А</span><span class="course-label">УКРАЇНСЬКА МОВА</span></div><h3 id="uaCourseTitle">Мова, мовлення й текст</h3><div class="progress-caption"><span id="uaProgressLabel">0 із 24 уроків</span><span id="uaProgressPercent">0%</span></div><div class="progress-track"><span id="uaProgressBar" style="width:0%"></span></div><button class="course-continue" data-continue="ua" data-lesson="">Продовжити →</button><span class="language-doodle">слово · думка · сенс</span></article>
+        </div>
+
+        <div class="lower-grid"><section class="panel homework-panel"><div class="panel-heading"><div><span class="eyebrow">НЕ ЗАБУДЬ</span><h2>Домашні завдання</h2></div><button class="text-link" data-go="homework">Усі завдання <span>→</span></button></div><div id="homeTaskPreview"></div></section>
+          <section class="panel week-panel"><div class="panel-heading"><div><span class="eyebrow">ПЛАНУЙ СВІЙ ЧАС</span><h2>Найближче</h2></div><button class="calendar-button" data-go="schedule" aria-label="Відкрити розклад">↗</button></div><div class="next-class"><div class="class-date"><strong>→</strong><small>ДАЛІ</small></div><div class="class-line"></div><div class="class-info"><span class="class-time" id="nextLessonMeta">—</span><strong id="nextLessonTitle">Завантаження уроку…</strong><small>Наступний урок за планом</small></div><button class="arrow-button" id="nextLessonOpen" data-lesson="" aria-label="Відкрити наступний урок">→</button></div><div class="week-note"><span>✳</span> Цього тижня — 4 короткі уроки з матеріалами й ДЗ.</div></section></div>
+        <footer class="footer-note">Навчання у власному темпі. <span>З турботою, команда Основа ✳</span></footer>
+      </section>
+
+      <section class="view" id="view-lessons"><div class="page-heading"><div><span class="eyebrow">ТЕОРІЯ, ЯКА СТАЄ ЗНАННЯМ</span><h1>Теоретичні уроки</h1><p class="lead">48 уроків для 5 класу: правила, докладні пояснення, приклади, короткий тест і письмове ДЗ.</p></div></div><div class="filter-row" id="lessonFilters"><button class="filter-chip selected" data-subject="all">Усі предмети</button><button class="filter-chip" data-subject="math">Математика</button><button class="filter-chip" data-subject="ua">Українська мова</button><label class="select-label">ТИЖДЕНЬ<select id="lessonWeekPicker" class="week-picker"><option value="all">Усі 12 тижнів</option></select></label></div><div class="lesson-list" id="lessonList"></div></section>
+
+      <section class="view" id="view-homework"><div class="page-heading"><div><span class="eyebrow">КРОК ЗА КРОКОМ</span><h1>Домашні завдання</h1><p class="lead">Виконуй вправи в зошиті й записуй свою роботу. До кожної теми можна повернутися до пояснення й прикладів.</p></div><div class="homework-count"><strong id="doneCount">0</strong><span id="doneTotal">із 48 виконано</span><button class="button button-dark" id="exportTeacherReport" type="button">Завантажити звіт учителю</button><label class="teacher-reply-label">Завантажити відгук учителя<input type="file" id="teacherReply" accept="application/json,.json"><span id="teacherReplyStatus"></span></label></div></div><div class="filter-row" id="taskFilters"><button class="filter-chip selected" data-status="all">Усі</button><button class="filter-chip selected" data-task-subject="all">Усі предмети</button><button class="filter-chip" data-task-subject="math">Математика</button><button class="filter-chip" data-task-subject="ua">Українська мова</button><button class="filter-chip" data-status="open">До виконання <span id="openCount">48</span></button><button class="filter-chip" data-status="done">Виконані</button><label class="select-label">ТИЖДЕНЬ<select id="taskWeekPicker" class="week-picker"><option value="all">Усі 12 тижнів</option></select></label></div><div class="task-list" id="taskList"></div><div class="note-banner"><span>✳</span><div><strong>Не знаєш, з чого почати?</strong><p>Переглянь теоретичний урок — там є приклади й підказки.</p></div><button class="text-link" data-go="lessons">До уроків →</button></div></section>
+
+      <section class="view" id="view-schedule"><div class="page-heading"><div><span class="eyebrow">ТВІЙ РИТМ НАВЧАННЯ</span><h1>Розклад на 3 місяці</h1><p class="lead">Для 5 класу · 12 навчальних тижнів. За тиждень: 5 годин математики та 4 години української мови — уроки, практика й п’ятничні мініконтрольні. Зимові канікули: 28 грудня — 10 січня.</p></div></div><div class="schedule-controls"><label class="select-label">ОБЕРИ ТИЖДЕНЬ<select id="scheduleWeekPicker" class="week-picker"><option value="all">Усі 12 тижнів</option></select></label><span class="week-legend"><i></i> Теорія, практика, домашня робота й мініКР</span></div><div id="scheduleContainer" class="schedule-stack"></div><div class="schedule-footnote">Дати є планом навчального циклу. Уроки й завдання відкриваються безпосередньо з розкладу.</div></section>
+      <div class="toast" id="toast" role="status"></div>
+    </main>
+  </div>
+  <div class="lesson-modal" id="lessonModal" aria-hidden="true"><div class="modal-backdrop" data-close></div><article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" data-close aria-label="Закрити">×</button><span class="eyebrow" id="modalSubject"></span><h2 id="modalTitle"></h2><div class="modal-body" id="modalBody"></div><div class="modal-footer"><span id="modalDuration"></span><button class="button button-dark" id="markLesson">Позначити як вивчений <span>✓</span></button></div></article></div>
+  <div class="lesson-modal assessment-modal" id="assessmentModal" aria-hidden="true"><div class="modal-backdrop" data-close-assessment></div><article class="modal-card assessment-card" role="dialog" aria-modal="true" aria-labelledby="assessmentTitle"><button class="modal-close" type="button" data-close-assessment aria-label="Закрити">×</button><span class="eyebrow">П’ЯТНИЧНИЙ КОНТРОЛЬ ЗНАНЬ</span><h2 id="assessmentTitle"></h2><p id="assessmentSubline" class="assessment-subline"></p><div class="assessment-status" id="assessmentStatus"></div><div class="modal-body" id="assessmentContent"></div><div class="modal-footer"><span>12 завдань · відповіді зберігаються автоматично</span><button class="button button-dark" id="submitAssessment" data-submit-assessment="">Завершити й зберегти</button></div></article></div>
+  <script src="curriculum.js"></script>
+  <script src="curriculum-extra.js"></script>
+  <script src="book-curriculum.js"></script>
+  <script src="book-curriculum-volume.js"></script>
+  <script src="lesson-guides.js"></script>
+  <script src="lesson-tests.js"></script>
+  <script src="app.js"></script>
+  <script src="homework-photos.js"></script>
+</body>
+</html>
+
+
+
+
+
